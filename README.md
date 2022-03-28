@@ -1,7 +1,4 @@
 # File_Monitor_Service
-
-# Data collector
-
 ## Task
 Implement a service that collects system information upon reception of a trigger event.
 The trigger event is raised when existence of a file with a certain name in a specified directory is detected.
