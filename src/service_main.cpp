@@ -21,8 +21,10 @@ int main() {
     std::string basePath= searchPath;
     //Example: C:\Users\Rahul\Desktop\Project\Output
     std::string outputPath;
-    std::cout << "Enter path for storing output: ";
-    std::cin >> outputPath;
+    do {
+        std::cout << "Enter a different path for storing output: ";
+        std::cin >> outputPath;
+    }while(outputPath == searchPath); //outputPath needs to be different from searchPath
     if(!std::filesystem::exists(outputPath)) {
             //create the output directory if it does not exist
             std::cout << "Creating directory at specified location for storing output" << std::endl;
