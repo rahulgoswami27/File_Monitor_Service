@@ -3,7 +3,6 @@
 #include <thread>
 #include <unordered_map>
 #include <string>
-#include <functional>
 
 //Possible file changes
 enum class Status {
