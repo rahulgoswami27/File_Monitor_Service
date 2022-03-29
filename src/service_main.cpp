@@ -1,11 +1,7 @@
 #ifndef DOING_UNIT_TESTS
 #include <iostream>
 #include <chrono>
-#include <sys/time.h>
-#include <ctime>
 #include <filesystem>
-#include <fstream>
-#include <thread>
 #include "Service_Helper.cpp"
 #include "MonitorHelper.h"
 
