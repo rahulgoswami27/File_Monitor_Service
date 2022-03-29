@@ -37,4 +37,20 @@ TEST(hexIdTestSuite, falseHasHexIdTest) {
     EXPECT_FALSE (Service_Helper::hasHexId("examp.rtu34321678.lz4"));
     EXPECT_FALSE (Service_Helper::hasHexId("core.klpo5642f.12j34.12l45ab.lz4"));
 }
+
+TEST(triggerFileTestSuite, trueTriggerFileTest) {
+    EXPECT_TRUE (Service_Helper::isTriggerName("core.1234abcd563526ef.lz4"));
+    EXPECT_TRUE (Service_Helper::isTriggerName("core.ServiceName.3057.57dd721409bc4ab4b38a3c33a36a608a.3717.1647975805000000.lz4"));
+    EXPECT_TRUE (Service_Helper::isTriggerName("core.service_1234abcd563526ef.23abcd6626a.lz4"));
+}
+
+TEST(triggerFileTestSuite, falseTriggerFileTest) {
+    EXPECT_FALSE (Service_Helper::isTriggerName("core_1234abcd563526ef.lz4"));
+    EXPECT_FALSE (Service_Helper::isTriggerName("core.1234abcd563526ef.txt"));
+    EXPECT_FALSE (Service_Helper::isTriggerName("core_1234abcdk563526ef.lz4"));
+    EXPECT_FALSE (Service_Helper::isTriggerName("service.1234abcd563526ef.lz4"));
+    EXPECT_FALSE (Service_Helper::isTriggerName("core.ServiceName.3057.57dd721409bc4ab4b38a3c33a36a608a.3717.1647975805000000.zip"));
+    EXPECT_FALSE (Service_Helper::isTriggerName("score.service_1234abcd563526ef.23abcd6626a.lz4"));
+    EXPECT_FALSE (Service_Helper::isTriggerName("core"));
+}
 #endif
