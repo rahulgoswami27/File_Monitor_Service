@@ -1,7 +1,7 @@
 # File Monitor Service
 ## Description
 This is an implementation of a monitoring service that collects disk usage information of a specified directory tree upon reception of a trigger event.
-The trigger event is raised when a file with a certain name anywhere in the user-specified directory tree is detected.
+The trigger event is raised when a file with a certain name anywhere in the user-specified directory tree is created.
 
 The file that raises a trigger on creation has the following properties
 - Starts with `core`
