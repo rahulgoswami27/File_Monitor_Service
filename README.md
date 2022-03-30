@@ -4,9 +4,9 @@ This is an implementation of a service that collects disk usage information of a
 The trigger event is raised when a file with a certain name in the specified directory is detected.
 
 The file that raises a trigger on creation has the following properties
-    * Starts with `core`
-    * Ends with `lz4`
-    * Contains one or more hexadecimal id separated by dots
+- Starts with `core`
+- Ends with `lz4`
+- Contains one or more hexadecimal id separated by dots
 
 The collected data is
   * Individual files, as well as whole directory tree contents 
