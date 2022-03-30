@@ -6,7 +6,7 @@
 #include "MonitorHelper.h"
 
 int main() {
-    std::cout << "Directory-monitoring & Data collection service started..." << std::endl;
+    std::cout << "Directory-monitoring & Data collection service..." << std::endl;
     //Example: C:\Users\Rahul\Desktop\Project\Folders
     std::string searchPath;
     do {
