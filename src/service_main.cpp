@@ -18,9 +18,9 @@ int main() {
     //Example: C:\Users\Rahul\Desktop\Project\Output
     std::string outputPath;
     do {
-        std::cout << "Enter a different path for storing output: ";
+        std::cout << "Enter a different path for storing output (cannot be subpath of monitoring path): ";
         std::cin >> outputPath;
-    }while(outputPath == searchPath); //outputPath needs to be different from searchPath
+    }while(outputPath == searchPath || outputPath.find(searchPath)!=std::string::npos); //outputPath needs to be different from searchPath
     if(!std::filesystem::exists(outputPath)) {
             //create the output directory if it does not exist
             std::cout << "Creating directory at specified location for storing output" << std::endl;
