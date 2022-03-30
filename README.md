@@ -1,18 +1,27 @@
 # File_Monitor_Service
-## Task
-Implement a service that collects system information upon reception of a trigger event.
-The trigger event is raised when existence of a file with a certain name in a specified directory is detected.
+## Description
+This is an implementation of a service that collects disk usage information of a specified directory tree upon reception of a trigger event.
+The trigger event is raised when a file with a certain name in the specified directory is detected.
 
-The following features must be implemented:
-* Trigger detection
-  * Detect creation of a file in a somehow specified directory
-  * Make the directory configurable via commandline parameter
-  * Only trigger on files with names following this format:
+The file that raises a trigger on creation has the following properties
     * Starts with `core`
     * Ends with `lz4`
     * Contains one or more hexadecimal id separated by dots
-    * Example: `core.ServiceName.3057.57dd721409bc4ab4b38a3c33a36a608a.3717.1647975805000000.lz4`
-* Collected data shall be:
-  * Individual files, as well as whole directories and their contents, recursively, configured via command line parameter
-  * Disk usage information in human-readable format of your choice, written to a file that is collected as if it would be in the list specified above
-* Store the collected data in a configurable dire
+
+The collected data is
+  * Individual files, as well as whole directory tree contents 
+  * Disk usage information of the files, written to a log_file.txt file in a Log_file folder.
+
+The collected data is then stored as a tar acrhive file in a directory specified by the user. 
+
+This is implemented mostly with the filesystem library introduced in C++17. Sample unit tests have been written to check for file names. 
+Gtest has been used to implement the example unit tests. This library is uploaded in an archive format under lib/ and needs to be extracted.
+
+This has been compiled using cmake on my Windows Pc using:
+- cd build
+- cmake .. -G "MinGW Makefiles"
+- make
+
+The executables, once built, are then stored in:
+- build/src/File_Monitor_service.exe --> The binary for running the service
+- build/tst/File_Monitor_txt.exe --> The binary for running the tests
