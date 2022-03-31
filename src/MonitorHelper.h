@@ -47,7 +47,7 @@ public:
                 auto currentLastWriteTime = std::filesystem::last_write_time(file);
 
                 // CREATION
-                if(!contains(file.path().string())) {//if this path entry is not already present, it is NEW
+                if(!existsInMap(file.path().string())) {//if this path entry is not already present, it is NEW
                     mapPaths[file.path().string()] = currentLastWriteTime; //value is set for this new file
                     userFunc(file.path().string(), Status::created); //set Status to created
                 // MODIFICATION
@@ -73,7 +73,7 @@ private:
     bool isRunning = true; //bool to denote if the monitoring is active
 
     // Check if "mapPaths" contains a given key -> path of the file
-    bool contains(const std::string &key) {
+    bool existsInMap(const std::string &key) {
         auto keyPos = mapPaths.find(key);
         return keyPos != mapPaths.end();
     }
