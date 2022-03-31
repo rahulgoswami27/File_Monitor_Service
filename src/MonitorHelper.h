@@ -44,17 +44,17 @@ public:
 
             // Monitor file CREATION / MODIFICATION
             for(auto &file : std::filesystem::recursive_directory_iterator(searchPath)) {//recursive search
-                auto current_file_last_write_time = std::filesystem::last_write_time(file);
+                auto currentLastWriteTime = std::filesystem::last_write_time(file);
 
                 // CREATION
                 if(!contains(file.path().string())) {//if this path entry is not already present, it is NEW
-                    mapPaths[file.path().string()] = current_file_last_write_time; //value is set for this new file
+                    mapPaths[file.path().string()] = currentLastWriteTime; //value is set for this new file
                     userFunc(file.path().string(), Status::created); //set Status to created
                 // MODIFICATION
                 } else {
                     //if a file is modified, then last write time value will change and this is checked here
-                    if(mapPaths[file.path().string()] != current_file_last_write_time) {
-                        mapPaths[file.path().string()] = current_file_last_write_time; //update last write time
+                    if(mapPaths[file.path().string()] != currentLastWriteTime) {
+                        mapPaths[file.path().string()] = currentLastWriteTime; //update last write time
                         userFunc(file.path().string(), Status::modified); //set Status to modified
                     }
                 }
