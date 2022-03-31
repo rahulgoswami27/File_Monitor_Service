@@ -74,7 +74,7 @@ private:
 
     // Check if "mapPaths" contains a given key -> path of the file
     bool contains(const std::string &key) {
-        auto k = mapPaths.find(key);
-        return k != mapPaths.end();
+        auto keyPos = mapPaths.find(key);
+        return keyPos != mapPaths.end();
     }
 };

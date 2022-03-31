@@ -26,11 +26,11 @@ int main() {
     }
     std::cout << "Monitoring service is starting..." << std::endl;
 
-    // A MonitorHelper instance which checks the current folder for changes every 3 seconds
-    MonitorHelper fw{searchPath, std::chrono::milliseconds(3000)};
+    // A MonitorHelper object which checks the current folder for changes every 3 seconds
+    MonitorHelper objMonitor{searchPath, std::chrono::milliseconds(3000)};
 
     // Monitor the required folder for changes
-    fw.start([&basePath, &outputPath] (std::string searchPath, Status status) -> void {
+    objMonitor.start([&basePath, &outputPath] (std::string searchPath, Status status) -> void {
         if(!std::filesystem::is_regular_file(std::filesystem::path(searchPath)) && status != Status::erased) {//watch only regular files
             return;
         }
