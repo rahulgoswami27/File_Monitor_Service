@@ -1,0 +1,5 @@
+cmake .. -G "MinGW Makefiles"
+
+
+
+File_Monitor_tst.exe --gtest_output="xml:.\XML_Report.xml"
